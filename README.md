@@ -1,34 +1,103 @@
-# expo-zendesk-library
+# 🚀 Expo Zendesk Library
 
-Zendesk Web Widget and SDK integration
+The `expo-zendesk-library` package integrates Zendesk functionality into your Expo app, enabling native Zendesk capabilities for both Android and iOS. Follow the steps below to install, configure, and contribute to the project.
 
-# API documentation
+## 📦 Installation
 
-- [Documentation for the latest stable release](https://docs.expo.dev/versions/latest/sdk/zendesk-library/)
-- [Documentation for the main branch](https://docs.expo.dev/versions/unversioned/sdk/zendesk-library/)
+### Add the Package to Your Project
 
-# Installation in managed Expo projects
+Install the `expo-zendesk-library` into your app’s dependencies:
 
-For [managed](https://docs.expo.dev/archive/managed-vs-bare/) Expo projects, please follow the installation instructions in the [API documentation for the latest stable release](#api-documentation). If you follow the link and there is no documentation available then this library is not yet usable within managed projects &mdash; it is likely to be included in an upcoming Expo SDK release.
 
-# Installation in bare React Native projects
-
-For bare React Native projects, you must ensure that you have [installed and configured the `expo` package](https://docs.expo.dev/bare/installing-expo-modules/) before continuing.
-
-### Add the package to your npm dependencies
-
-```
-npm install expo-zendesk-library
+```bash
+ npm install expo-zendesk-library
 ```
 
-### Configure for Android
+
+Once installed, you need to build your Expo app for Android and iOS to generate the respective build folders.
+
+For **Android**:
+
+```
+expo run:android
+```
+
+For **IOS**:
+
+```
+expo run:ios
+```
+
+## 🛠️ Configuration
+
+### Android Configuration
+
+1. Open the `android/build.gradle` file in the root of your project.
+2. Add the following repository to the `allprojects` section:
+
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url "https://zendesk.jfrog.io/artifactory/repo" }
+    }
+}
+```
 
 
-
-
-### Configure for iOS
+### IOS Configuration
 
 Run `npx pod-install` after installing the npm package.
+
+
+---
+
+## 🚀 Running the Project Locally
+
+To set up and run the example project, follow these steps:
+
+### 1. Install Dependencies
+
+Run the following commands to install the required packages:
+
+```bash
+# At the root level
+npm install
+
+# Inside the example folder
+cd example
+npm install
+```
+
+### 2. Build the Library
+
+Navigate back to the **root** directory and run:
+
+```bash
+npm run build
+```
+
+This compiles the library for use in the example project.
+
+### 3. Run the Example App
+
+Open a **new terminal window**, navigate to the **example** folder, and start the app:
+
+For **Android**:
+
+```bash
+npm run android
+```
+
+For **iOS**:
+
+```bash
+npm run ios
+```
+
+> **Note:** Ensure you have the necessary development environment set up for React Native, including Android Studio (for Android) and Xcode (for iOS).
+>
+> 
 
 # Contributing
 
