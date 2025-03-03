@@ -1,7 +1,7 @@
 {
-  "name": "expo-settings",
-  "version": "0.1.0",
-  "description": "My new module",
+  "name": "expo-zendesk-library",
+  "version": "0.1.1",
+  "description": "Zendesk Web Widget and SDK integration",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
@@ -18,21 +18,20 @@
   "keywords": [
     "react-native",
     "expo",
-    "expo-settings",
-    "ExpoSettings"
+    "expo-zendesk-library",
+    "ExpoZendeskLibrary"
   ],
-  "repository": "https://github.com/damontes/react-series-challenge",
+  "repository": "https://github.com/zendesk-daniel/expo-zendesk-library",
   "bugs": {
-    "url": "https://github.com/damontes/react-series-challenge/issues"
+    "url": "https://github.com/zendesk-daniel/expo-zendesk-library/issues"
   },
-  "author": "Daniel <dma_brothers@hotmail.com> ()",
+  "author": "Daniel Montes <daniela.montes@zendesk.com> (https://github.com/zendesk-daniel)",
   "license": "MIT",
-  "homepage": "https://github.com/damontes/react-series-challenge#readme",
-  "dependencies": {},
+  "homepage": "https://github.com/zendesk-daniel/expo-zendesk-library#readme",
   "devDependencies": {
     "@types/react": "~18.3.12",
-    "expo-module-scripts": "^4.0.3",
     "expo": "~52.0.0",
+    "expo-module-scripts": "^4.0.3",
     "react-native": "0.76.0"
   },
   "peerDependencies": {

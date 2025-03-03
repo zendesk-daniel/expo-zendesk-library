@@ -6,12 +6,12 @@
   ],
   "apple": {
     "modules": [
-      "ExpoSettingsModule"
+      "ExpoZendeskLibraryModule"
     ]
   },
   "android": {
     "modules": [
-      "expo.modules.settings.ExpoSettingsModule"
+      "expo.modules.zendesklibrary.ExpoZendeskLibraryModule"
     ]
   }
 }

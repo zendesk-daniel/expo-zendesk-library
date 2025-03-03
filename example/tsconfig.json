@@ -3,8 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "expo-settings": ["../src/index"],
-      "expo-settings/*": ["../src/*"]
+      "expo-zendesk-library": ["../src/index"],
+      "expo-zendesk-library/*": ["../src/*"]
     }
   }
 }

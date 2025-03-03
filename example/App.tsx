@@ -1,73 +1,54 @@
-import { useEvent } from 'expo';
-import ExpoSettings, { ExpoSettingsView } from 'expo-settings';
-import { Button, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import Zendesk from "expo-zendesk-library";
+import { useEffect } from "react";
+import { Platform, Text, View, StyleSheet } from "react-native";
+
+import IconButton from "./components/IconButton";
+import { useNotifications } from "./hooks/useNotifications";
+
+const IOS_CHANNEL_KEY = process.env.EXPO_PUBLIC_ZENDESK_IOS_CHANNEL_KEY;
+const ANDROID_CHANNEL_KEY = process.env.EXPO_PUBLIC_ZENDESK_ANDROID_CHANNEL_KEY;
 
 export default function App() {
-  const onChangePayload = useEvent(ExpoSettings, 'onChange');
+  const token = useNotifications();
+
+  const initializeZendesk = async () => {
+    try {
+      await Zendesk.initialize(
+        Platform.OS === "ios" ? IOS_CHANNEL_KEY : ANDROID_CHANNEL_KEY,
+      );
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  };
+
+  const handleOpentChat = () => {
+    Zendesk.showConversation();
+  };
+
+  useEffect(() => {
+    initializeZendesk();
+  }, []);
+
+  useEffect(() => {
+    if (token) Zendesk.setPushNotificaitonToken(token);
+  }, [token]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.container}>
-        <Text style={styles.header}>Module API Example</Text>
-        <Group name="Constants">
-          <Text>{ExpoSettings.PI}</Text>
-        </Group>
-        <Group name="Functions">
-          <Text>{ExpoSettings.hello()}</Text>
-        </Group>
-        <Group name="Async functions">
-          <Button
-            title="Set value"
-            onPress={async () => {
-              await ExpoSettings.setValueAsync('Hello from JS!');
-            }}
-          />
-        </Group>
-        <Group name="Events">
-          <Text>{onChangePayload?.value}</Text>
-        </Group>
-        <Group name="Views">
-          <ExpoSettingsView
-            url="https://www.example.com"
-            onLoad={({ nativeEvent: { url } }) => console.log(`Loaded: ${url}`)}
-            style={styles.view}
-          />
-        </Group>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-function Group(props: { name: string; children: React.ReactNode }) {
-  return (
-    <View style={styles.group}>
-      <Text style={styles.groupHeader}>{props.name}</Text>
-      {props.children}
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Zendesk Library</Text>
+      <IconButton
+        icon="chatbox"
+        onPress={handleOpentChat}
+        style={styles.chatButton}
+      />
     </View>
   );
 }
 
-const styles = {
-  header: {
-    fontSize: 30,
-    margin: 20,
+const styles = StyleSheet.create({
+  chatButton: {
+    position: "absolute",
+    bottom: 64,
+    right: 12,
   },
-  groupHeader: {
-    fontSize: 20,
-    marginBottom: 20,
-  },
-  group: {
-    margin: 20,
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 20,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#eee',
-  },
-  view: {
-    flex: 1,
-    height: 200,
-  },
-};
+});

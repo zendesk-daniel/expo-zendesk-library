@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "890516416165",
+    "project_id": "zendesk-screwfix",
+    "storage_bucket": "zendesk-screwfix.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890516416165:android:3489d7ec7952f336570f4c",
+        "android_client_info": {
+          "package_name": "expo.modules.settings.example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDaCfoZOUJ4vBgEcfhh8hdWXV09tex0YE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
