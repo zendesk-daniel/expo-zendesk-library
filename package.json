@@ -1,6 +1,6 @@
 {
   "name": "expo-zendesk-library",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Zendesk Web Widget and SDK integration",
   "main": "build/index.js",
   "types": "build/index.d.ts",
