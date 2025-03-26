@@ -18,6 +18,31 @@ public class ExpoZendeskLibraryModule: Module {
       }
     }
 
+    AsyncFunction("login") { (jwt: String, promise: Promise) in
+      Zendesk.instance?.loginUser(with: jwt) { result in
+        switch result {
+          case .success(let user):
+            promise.resolve([
+              "id": user.id,
+              "externalId": user.externalId
+            ])
+          case .failure(let error):
+            promise.reject("LOGIN_ERROR", error.localizedDescription)
+        }
+      }
+    }
+
+    AsyncFunction("logout") { (promise: Promise) in
+      Zendesk.instance?.logoutUser { result in
+        switch result {
+          case .success(_):
+            promise.resolve(nil)
+          case .failure(let error):
+            promise.reject("LOGOUT_ERROR", error.localizedDescription)
+        }
+      }
+    }
+
     Function("showConversation") { () -> Void in
       DispatchQueue.main.async {
         guard let messagingViewController = Zendesk.instance?.messaging?.messagingViewController() else {
