@@ -1,7 +1,11 @@
 PODS:
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
+  - EXApplication (6.0.2):
+    - ExpoModulesCore
   - EXConstants (17.0.7):
+    - ExpoModulesCore
+  - EXNotifications (0.29.13):
     - ExpoModulesCore
   - Expo (52.0.37):
     - ExpoModulesCore
@@ -36,7 +40,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - ExpoZendeskLibrary (0.1.0):
+  - ExpoZendeskLibrary (0.1.2):
     - ExpoModulesCore
     - ZendeskSDKMessaging
   - FBLazyVector (0.76.7)
@@ -1549,43 +1553,45 @@ PODS:
     - React-utils (= 0.76.7)
   - SocketRocket (0.7.1)
   - Yoga (0.0.0)
-  - Zendesk (3.5.0):
-    - ZendeskSDKConversationKit (~> 9.0.0)
-    - ZendeskSDKCoreUtilities (~> 4.0.0)
-  - ZendeskSDKConversationKit (9.0.0):
-    - ZendeskSDKCoreUtilities (~> 4.0.0)
-    - ZendeskSDKFayeClient (~> 1.10.0)
-    - ZendeskSDKHTTPClient (~> 0.17.0)
-    - ZendeskSDKStorage (~> 1.1.0)
-  - ZendeskSDKCoreUtilities (4.0.0)
-  - ZendeskSDKFayeClient (1.10.0):
+  - Zendesk (3.8.0):
+    - ZendeskSDKConversationKit (~> 11.1.0)
+    - ZendeskSDKCoreUtilities (~> 7.0.0)
+  - ZendeskSDKConversationKit (11.1.0):
+    - ZendeskSDKCoreUtilities (~> 7.0.0)
+    - ZendeskSDKFayeClient (~> 1.12.0)
+    - ZendeskSDKHTTPClient (~> 0.19.0)
+    - ZendeskSDKStorage (~> 1.2.0)
+  - ZendeskSDKCoreUtilities (7.0.0)
+  - ZendeskSDKFayeClient (1.12.0):
     - ZendeskSDKLogger (~> 0.10.0)
-    - ZendeskSDKSocketClient (~> 1.9.0)
-  - ZendeskSDKGuideKit (2.0.0):
-    - ZendeskSDKCoreUtilities (~> 4.0.0)
-    - ZendeskSDKHTTPClient (~> 0.17.0)
+    - ZendeskSDKSocketClient (~> 1.11.0)
+  - ZendeskSDKGuideKit (2.3.0):
+    - ZendeskSDKCoreUtilities (~> 7.0.0)
+    - ZendeskSDKHTTPClient (~> 0.19.0)
     - ZendeskSDKLogger (~> 0.10.0)
-    - ZendeskSDKStorage (~> 1.1.0)
-  - ZendeskSDKHTTPClient (0.17.0):
+    - ZendeskSDKStorage (~> 1.2.0)
+  - ZendeskSDKHTTPClient (0.19.0):
     - ZendeskSDKLogger (~> 0.10.0)
   - ZendeskSDKLogger (0.10.0)
-  - ZendeskSDKMessaging (2.27.0):
-    - Zendesk (~> 3.5.0)
-    - ZendeskSDKConversationKit (~> 9.0.0)
-    - ZendeskSDKCoreUtilities (~> 4.0.0)
-    - ZendeskSDKGuideKit (~> 2.0.0)
-    - ZendeskSDKUIComponents (~> 11.0.0)
-  - ZendeskSDKSocketClient (1.9.0):
+  - ZendeskSDKMessaging (2.30.1):
+    - Zendesk (~> 3.8.0)
+    - ZendeskSDKConversationKit (~> 11.1.0)
+    - ZendeskSDKCoreUtilities (~> 7.0.0)
+    - ZendeskSDKGuideKit (~> 2.3.0)
+    - ZendeskSDKUIComponents (~> 13.1.1)
+  - ZendeskSDKSocketClient (1.11.0):
     - ZendeskSDKLogger (~> 0.10.0)
-  - ZendeskSDKStorage (1.1.0):
+  - ZendeskSDKStorage (1.2.0):
     - ZendeskSDKLogger (~> 0.10.0)
-  - ZendeskSDKUIComponents (11.0.0):
-    - ZendeskSDKCoreUtilities (~> 4.0.0)
+  - ZendeskSDKUIComponents (13.1.1):
+    - ZendeskSDKCoreUtilities (~> 7.0.0)
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
+  - EXNotifications (from `../node_modules/expo-notifications/ios`)
   - Expo (from `../node_modules/expo`)
   - ExpoAsset (from `../node_modules/expo-asset/ios`)
   - ExpoFileSystem (from `../node_modules/expo-file-system/ios`)
@@ -1677,8 +1683,12 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  EXApplication:
+    :path: "../node_modules/expo-application/ios"
   EXConstants:
     :path: "../node_modules/expo-constants/ios"
+  EXNotifications:
+    :path: "../node_modules/expo-notifications/ios"
   Expo:
     :path: "../node_modules/expo"
   ExpoAsset:
@@ -1820,14 +1830,16 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: 1dca942403ed9342f98334bf4c3621f011aa7946
   DoubleConversion: f16ae600a246532c4020132d54af21d0ddb2a385
+  EXApplication: 27a524f5c3e671c6218220fba04752629466a1a9
   EXConstants: 0472d3c23d97943fe3505306daf9cde8024365c2
+  EXNotifications: 08cc7c5a100c2edc3a01227cfdfcaf17746189d7
   Expo: f1d13d22815979ad85a0a59fcf6d23660c813ecd
   ExpoAsset: a4cbc27a7cd24a6e87eb719603790b2cfa8dd326
   ExpoFileSystem: 4d2e7f77a41cfde8c3ae98580d872cd49437f993
   ExpoFont: 773955186469acc5108ff569712a2d243857475f
   ExpoKeepAwake: 2a5f15dd4964cba8002c9a36676319a3394c85c7
   ExpoModulesCore: 561a787bc626ab9bcfee2a688bd588bf2667405f
-  ExpoZendeskLibrary: fa4ad87f4f0e7ace5aa95fd70bc62f4facc5cb83
+  ExpoZendeskLibrary: 45554b7da788c45ed6df10e2283c8449dbe9d0b1
   FBLazyVector: ca8044c9df513671c85167838b4188791b6f37e1
   fmt: 10c6e61f4be25dc963c36bd73fc7b1705fe975be
   glog: 08b301085f15bcbb6ff8632a8ebaf239aae04e6a
@@ -1890,17 +1902,17 @@ SPEC CHECKSUMS:
   ReactCommon: 04292c6f596181ebf755e7929d96d2148542b0e8
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 88e46d0f2096eb9762a82c2c45ab23b0880de97d
-  Zendesk: d2a84248fe0a818804a54c24412ac628b26d27b7
-  ZendeskSDKConversationKit: c2d3faa846407c7832d78fca12a51fd78f9a15fe
-  ZendeskSDKCoreUtilities: 0a8a35fa952adf427606f027737f31123b963e58
-  ZendeskSDKFayeClient: 7d4936f5c4f46f5ec98bfc5ea71864d571c2ca22
-  ZendeskSDKGuideKit: ce338bcae371d8c576d2edffe3d381deff555726
-  ZendeskSDKHTTPClient: d28570175ef3d727643bd2a703c1bccf14ce0401
+  Zendesk: 8490c20699d163f7901fe167d8d7ab74b6d7014e
+  ZendeskSDKConversationKit: 1d8dc5caa12bfe56b84153aad37e3b1b941232d4
+  ZendeskSDKCoreUtilities: 49458a5315fb8d8e40ed2a8c69fbeb8e3c706adc
+  ZendeskSDKFayeClient: 1d97cbce5eb44a724761368f5705f05983e3cee7
+  ZendeskSDKGuideKit: 85a832b5e55b7b9ae3461db633dde3f4833a7c23
+  ZendeskSDKHTTPClient: 2702ffa4442678bb295974c7aa8ce6ddd01b3f68
   ZendeskSDKLogger: fe3963f7a9c3cc28d3337ce4a4f66efdfc65563c
-  ZendeskSDKMessaging: a5464159906e5a8dc6c4755eff5a5ccef8784d00
-  ZendeskSDKSocketClient: 08c89487d1bad9c31b19adc23e5e9f904a5328c9
-  ZendeskSDKStorage: 601155a625e2cb720e43c4a37aaaa644c0e2b94e
-  ZendeskSDKUIComponents: 02111c88cbf066f7ce901ba46b013ad51f1b7a98
+  ZendeskSDKMessaging: b1833d307ed5d30a6bc801b6098a9b77e86e4836
+  ZendeskSDKSocketClient: 7ed6cfe0af62024476fbc5142717dfd5cd8e1751
+  ZendeskSDKStorage: d980dd64e2b75e06e707b7dbeb5027304d39ad75
+  ZendeskSDKUIComponents: 7e1379ad89a0190593ebd5359d76785b2c53f6c5
 
 PODFILE CHECKSUM: 6a0d49cfd3e8db1e2ae6cbd68695de4376f479d1
 

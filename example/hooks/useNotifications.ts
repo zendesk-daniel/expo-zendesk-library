@@ -9,7 +9,6 @@ export const useNotifications = () => {
 
   const setInitialSettings = async () => {
     await requestPermissions();
-    console.log("GET TOKEN");
     const token = await getFCMToken();
     setToken(token);
   };
@@ -53,7 +52,6 @@ async function subscribeToTopic() {
 async function getFCMToken() {
   try {
     const token = await messaging().getToken();
-    console.log("GET TOKEN", token);
     return token;
   } catch (error) {
     console.log("Error getting FCM token", error);

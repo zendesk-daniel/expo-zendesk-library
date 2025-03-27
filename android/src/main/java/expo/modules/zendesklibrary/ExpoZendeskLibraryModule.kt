@@ -20,6 +20,32 @@ class ExpoZendeskLibraryModule : Module() {
       PushNotifications.updatePushNotificationToken(token)
     }
 
+
+    AsyncFunction("login") { jwt: String, promise: Promise ->
+      Zendesk.instance.loginUser(jwt = jwt,
+        successCallback = { user -> 
+          promise.resolve(mapOf(
+            "id" to user.id,
+            "externalId" to user.externalId
+          ))
+        },
+        failureCallback = { error -> 
+          promise.reject("LOGIN_ERROR", "Zendesk login failed", error) 
+        }
+      )
+    }
+
+    AsyncFunction("logout") { promise: Promise ->
+      Zendesk.instance.logoutUser(
+        successCallback = { _ ->
+          promise.resolve(null) 
+        },
+        failureCallback = { error -> 
+          promise.reject("LOGOUT_ERROR", "Zendesk logout failed", error) 
+        }
+      )
+    }
+
     AsyncFunction("initialize")  { channelKey: String, promise: Promise ->
       Zendesk.initialize(
         context = reactContext,
@@ -33,6 +59,8 @@ class ExpoZendeskLibraryModule : Module() {
         messagingFactory = DefaultMessagingFactory()
       )
     }
+
+
   }
 
   private val reactContext

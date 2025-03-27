@@ -6,6 +6,9 @@ declare class ExpoZendeskLibaryModule extends NativeModule<ExpoZendeskLibraryMod
   initialize: (channelKey: string) => Promise<void>;
   showConversation: () => void;
   setPushNotificaitonToken: (token: string) => void;
+  login: (jwtToken: string) => Promise<void>;
+  logout: () => Promise<void>;
+  eventListener: (callback: (event: string) => void) => void;
 }
 
 // This call loads the native module object from the JSI.
