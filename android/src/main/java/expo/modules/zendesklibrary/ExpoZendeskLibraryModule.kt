@@ -26,8 +26,7 @@ class ExpoZendeskLibraryModule : Module() {
         successCallback = { user -> 
           promise.resolve(mapOf(
             "id" to user.id,
-            "externalId" to user.externalId,
-            "name" to user.name
+            "externalId" to user.externalId
           ))
         },
         failureCallback = { error -> 
