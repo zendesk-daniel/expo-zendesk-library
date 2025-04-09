@@ -2,8 +2,17 @@ import ExpoModulesCore
 
 import ZendeskSDKMessaging
 import ZendeskSDK
+// import ZendeskSDKLogger
 
 public class ExpoZendeskLibraryModule: Module {
+
+  // public required init(appContext: AppContext) {
+  //   super.init(appContext: appContext)
+
+  //   Logger.enabled = true
+  //   Logger.level = .debug
+  // }
+
   public func definition() -> ModuleDefinition {
     Name("ExpoZendeskLibrary")
 
@@ -55,7 +64,11 @@ public class ExpoZendeskLibraryModule: Module {
           return
         }
 
-        currentViewController.present(messagingViewController, animated: true, completion: nil)
+        // ✅ Wrap the messaging view in a navigation controller
+        let navController = UINavigationController(rootViewController: messagingViewController)
+        navController.modalPresentationStyle = .fullScreen
+
+        currentViewController.present(navController, animated: true, completion: nil)
       }
     }
   }

@@ -15,9 +15,11 @@ export default function App() {
 
   const initializeZendesk = async () => {
     try {
-      await Zendesk.initialize(
+      const response = await Zendesk.initialize(
         Platform.OS === "ios" ? IOS_CHANNEL_KEY : ANDROID_CHANNEL_KEY,
       );
+
+      console.log("INITIALIZE", response);
     } catch (error) {
       console.log("ERROR", error);
     }
@@ -25,6 +27,7 @@ export default function App() {
 
   const handleOpentChat = () => {
     Zendesk.showConversation();
+    console.log("SHOW CONVERSATION");
   };
 
   useEffect(() => {
